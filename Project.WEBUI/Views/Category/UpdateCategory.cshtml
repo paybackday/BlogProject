@@ -1,0 +1,42 @@
+﻿@model CategoryVM
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddCategory</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <style>
+        .resim {
+            width: 100px;
+            height: 100px;
+            border: 3px dotted green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        @using (Html.BeginForm("UpdateCategory", "Category", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.HiddenFor(x=>x.Category.ID)
+            <div style="margin-top:10px;">Kategori Ismi Giriniz:</div>
+            <div style="margin-top:5px;">@Html.TextBoxFor(x => x.Category.CategoryName)</div>
+            <div style="margin-top:5px;">Kategori Aciklamasi Giriniz:</div>
+            <div style="margin-top:5px;">@Html.TextBoxFor(x => x.Category.Description)</div>
+            <div style="margin-top:5px;">Kategori Resmi:</div>
+            <div style="margin-top:10px; width:350px;"><input type="file" name="resim" class="form-control genislik" /></div>
+            <div style="margin-top:5px;">Mevcut Resim:</div>
+            <div><img class="resim" src="@Model.Category.ImagePath" /></div>
+            <button style="margin-top:15px;" class="btn btn-success">Makale Kategorisi Guncelle</button>
+
+
+        }
+    </div>
+</body>
+</html>

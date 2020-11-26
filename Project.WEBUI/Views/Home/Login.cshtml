@@ -25,7 +25,7 @@
     <div class="form-group">
         <h4>Uye Girisi</h4>
         @Html.TextBoxFor(x => x.AppUser.UserName, new { @class="form-horizontal", placeholder = "Kullanici Adinizi giriniz." })<br />
-        @Html.TextBoxFor(x => x.AppUser.Password, new {@style="margin-top:10px;", @class = "form-horizontal" ,placeholder = "Sifrenizi giriniz." })
+        @Html.PasswordFor(x => x.AppUser.Password, new {@style="margin-top:10px;", @class = "form-horizontal" ,placeholder = "Sifrenizi giriniz." })
         <br />
 
         <button style="margin-top:10px; width:180px;" class="btn btn-success" type="submit">Giris Yap</button>

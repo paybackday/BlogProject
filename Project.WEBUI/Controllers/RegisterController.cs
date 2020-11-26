@@ -77,7 +77,7 @@ namespace Project.WEBUI.Controllers
             return RedirectToAction("Login", "Home");
 
         }
-
+        
         public ActionResult RegisterOk() {
 
             return View();
