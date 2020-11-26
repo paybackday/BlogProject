@@ -1,4 +1,5 @@
 ﻿using Bogus.DataSets;
+using Project.COMMON.Tools;
 using Project.DAL.ContextClasses;
 using Project.ENTITIES.Models;
 using System;
@@ -14,14 +15,26 @@ namespace Project.DAL.StrategyPattern
     {
         protected override void Seed(MyContext context)
         {
+            //Admin ekleme
+            AppUser ap = new AppUser();
+            ap.UserName = "emrgrn";
+            ap.Password = DantexCrypt.Crypt("1234");
+            ap.Email = "emregorentest@gmail.com";
+            ap.Role = ENTITIES.Enum.UserRole.Admin;
+            ap.Active = true;
+            context.AppUsers.Add(ap);
+            context.SaveChanges();
+
+            
+            
             for (int i = 0; i < 10; i++)
             {
-                AppUser ap = new AppUser();
-                ap.UserName = new Internet("tr").UserName();
-                ap.Password = new Internet("tr").Password();
-                ap.Email = new Internet("tr").Email();
+                AppUser apu = new AppUser();
+                apu.UserName = new Internet("tr").UserName();
+                apu.Password = new Internet("tr").Password();
+                apu.Email = new Internet("tr").Email();
 
-                context.AppUsers.Add(ap);
+                context.AppUsers.Add(apu);
 
             }
             context.SaveChanges();
