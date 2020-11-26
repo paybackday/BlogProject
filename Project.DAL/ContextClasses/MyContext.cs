@@ -20,16 +20,15 @@ namespace Project.DAL.ContextClasses
         public DbSet<Article> Articles { get; set; }
        
         public DbSet<Category> Categories { get; set; }
-       
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new AppUserMap());
             modelBuilder.Configurations.Add(new UserProfileMap());
-            
+
             modelBuilder.Configurations.Add(new ArticleMap());
             modelBuilder.Configurations.Add(new CategoryMap());
-          
         }
     }
 }

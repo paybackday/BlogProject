@@ -1,23 +1,19 @@
-﻿using System;
+﻿using Bogus.DataSets;
+using Project.DAL.ContextClasses;
+using Project.ENTITIES.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Bogus.DataSets;
-using Project.DAL.ContextClasses;
-using Project.ENTITIES.Models;
 
-namespace Project.DAL.StratgeyPattern
+namespace Project.DAL.StrategyPattern
 {
-    class MyInit: CreateDatabaseIfNotExists<MyContext>
+    public class MyInit:CreateDatabaseIfNotExists<MyContext>
     {
         protected override void Seed(MyContext context)
         {
-            
-
-
-
             for (int i = 0; i < 10; i++)
             {
                 AppUser ap = new AppUser();
@@ -36,7 +32,7 @@ namespace Project.DAL.StratgeyPattern
                 up.ID = i;
                 up.FirstName = new Name("tr").FirstName();
                 up.LastName = new Name("tr").LastName();
-                
+
                 context.UserProfiles.Add(up);
 
             }
@@ -63,10 +59,9 @@ namespace Project.DAL.StratgeyPattern
                 context.Categories.Add(c);
                 context.SaveChanges();
 
-                
+
 
             }
         }
-
     }
 }
