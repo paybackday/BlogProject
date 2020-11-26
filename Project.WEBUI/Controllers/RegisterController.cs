@@ -45,7 +45,7 @@ namespace Project.WEBUI.Controllers
                 return View();
             }
 
-            string gonderilecekMail = "Tebrikler. Hesabiniz olusturuldu. Hesabinizi aktif etmek icin lutfen baglantiya tiklayin. https://localhost:44318/" + appUser.ActivationCode;
+            string gonderilecekMail = "Tebrikler. Hesabiniz olusturuldu. Hesabinizi aktif etmek icin lutfen baglantiya tiklayin. https://localhost:44318/Register/Activation/" + appUser.ActivationCode;
 
             MailSender.Send(appUser.Email, password: "emreemre123", body: gonderilecekMail, subject: "Hesap Aktivasyon", sender: "emregorentest@gmail.com");
             apRep.Add(appUser);

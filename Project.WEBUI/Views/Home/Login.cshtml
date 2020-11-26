@@ -1,0 +1,45 @@
+﻿@model AppUserVM
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+</head>
+<body>
+    <div class="container">
+        @TempData["HesapAktifmi"]
+        @using(Html.BeginForm("Login","Home",FormMethod.Post,new { @class = "form" }))
+        {
+            if (ViewBag.AktifDegil!=null)
+            {
+                <h5>@ViewBag.AktifDegil</h5>
+            }
+    <div class="form-group">
+        <h4>Uye Girisi</h4>
+        @Html.TextBoxFor(x => x.AppUser.UserName, new { @class="form-horizontal", placeholder = "Kullanici Adinizi giriniz." })<br />
+        @Html.TextBoxFor(x => x.AppUser.Password, new {@style="margin-top:10px;", @class = "form-horizontal" ,placeholder = "Sifrenizi giriniz." })
+        <br />
+
+        <button style="margin-top:10px; width:180px;" class="btn btn-success" type="submit">Giris Yap</button>
+
+        <div style="padding-top:10px;">@Html.ActionLink("UYE OL","RegisterNow","Register",new { @class="btn btn-info", @style="width:180px;"})</div>
+
+    </div>
+
+
+
+
+        }
+
+
+    </div>
+</body>
+</html>
