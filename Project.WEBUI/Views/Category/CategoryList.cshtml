@@ -1,0 +1,60 @@
+﻿@model CategoryVM
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Makale Kategorileri</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+</head>
+<body>
+    <div style="padding-top:20px;" class="container">
+        <div class="panel panel-primary">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <td>Kategori Ismi</td>
+                        <td>Kategori Aciklamasi</td>
+                        <td>Kategori Resmi</td>
+                        @if (Session["admin"] != null)
+                        {
+                            <td style="text-align:center;" colspan="2">Islemler</td>
+                        }
+
+                    </tr>
+                </thead>
+                <tbody>
+                   @foreach (Category item in Model.Categories)
+                   {
+                    <tr>
+                        <td>@item.CategoryName</td>
+                        <td>@item.Description</td>
+                        <td><center><img src="@item.ImagePath" alt="Resim Yuklenemedi" width="50" height="50" title="@item.CategoryName" /></center></td>
+                        @if (Session["admin"] != null)
+                        {
+                            <td>@Html.ActionLink("Guncelle", "UpdateCategory", new { id = item.ID }, new { @class = "btn btn-warning" })</td>
+                            <td>@Html.ActionLink("Sil", "DeleteCategory", new { id = item.ID }, new { @class = "btn btn-danger" })</td>
+                        }
+
+                    </tr>
+                   }
+                </tbody>
+
+
+
+
+
+            </table> 
+
+
+
+        </div>
+    </div>
+</body>
+</html>
