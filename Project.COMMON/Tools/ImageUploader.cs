@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 
-namespace Project.COMMON.MyTools
+namespace Project.COMMON.Tools
 {
     //Eger bir sınıfın görevi belliyse ve instance'lari sürekli aynı görevi yapacak ise onun instance'inin alınması bos yere ram'de yer kaplamasına neden olur. 
 

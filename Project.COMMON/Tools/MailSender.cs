@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Web;
 
-namespace Projec.COMMON.MyTools
+namespace Project.COMMON.Tools
 {
     public static class MailSender
     {
