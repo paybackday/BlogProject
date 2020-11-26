@@ -1,0 +1,41 @@
+﻿@model AppUserVM
+@{
+    ViewBag.Title = "RegisterNow";
+}
+
+
+@using (Html.BeginForm("RegisterNow", "Register", FormMethod.Post, new { @class = "form" }))
+{
+    if (ViewBag.ZatenVar != null)
+    {
+        <h2>@ViewBag.ZatenVar</h2>
+    }
+
+    <h2 class="form-signin-heading"> Uye olunuz  </h2>
+    <div class="login-wrap">
+
+        @Html.TextBoxFor(x => x.AppUser.UserName, new { @class = "form-control", placeholder = "Kullanıcı ismi giriniz" })
+        <br />
+        @Html.PasswordFor(x => x.AppUser.Password, new { @class = "form-control", placeholder = "Sifre Giriniz" })
+        <br />
+        @Html.TextBoxFor(x => x.AppUser.Email, new { @class = "form-control", placeholder = "Email giriniz" })
+        <br />
+        @Html.TextBoxFor(x => x.Profile.FirstName, new { @class = "form-control", placeholder = "İsminizi Giriniz" })
+    <br />
+        @Html.TextBoxFor(x => x.Profile.LastName, new { @class = "form-control", placeholder = "SoyIsminizi Giriniz" })
+
+        <br />
+        <button class="btn btn-primary" type="submit">Kayit Ol</button>
+        <br />
+
+        <div class="registration" style="padding-top:10px;">
+
+            @Html.ActionLink("Giris yap", "Login", "Home")
+
+        </div>
+
+    </div>
+}
+
+
+
